@@ -10,7 +10,7 @@ resources:
 
 variables:
   # Container registry service connection established during pipeline creation
-  azureSubscription: 'Dev'
+  azureSubscription: 'Dev(eace7666-1403-49a9-84e9-a94170481957)'
   appName: 'praveencontainer'
   dockerRegistryServiceConnection: '7920c4cc-c523-4245-8b4b-e531650eb32c'
   imageRepository: 'praveensimformpipelinesjavascriptdocker'
