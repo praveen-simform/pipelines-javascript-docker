@@ -10,6 +10,8 @@ resources:
 
 variables:
   # Container registry service connection established during pipeline creation
+  azureSubscription: 'Dev'
+  appName: 'praveencontainer'
   dockerRegistryServiceConnection: '7920c4cc-c523-4245-8b4b-e531650eb32c'
   imageRepository: 'praveensimformpipelinesjavascriptdocker'
   containerRegistry: 'praveenacrtest.azurecr.io'
@@ -37,3 +39,9 @@ stages:
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
+    - task: AzureWebAppContainer@1
+      displayName: 'Azure Web App on Container Deploy'
+      inputs:
+        azureSubscription: $(azureSubscription)
+        appName: $(appName)
+        imageName: $(containerRegistry)/$(imageRepository):$(tag)
